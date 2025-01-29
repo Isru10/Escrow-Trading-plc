@@ -1,29 +1,48 @@
-import React from 'react'
-import hybrid from '../assets/hybrid.jpg'
+import React from 'react';
+import { ReactTyped } from 'react-typed';
+import { motion } from 'motion/react';
+// import Typed from "react-typed";
+import help from '/src/assets/Tranquil/help.jpg';
+
+const container = (delay)=>({
+  hidden:{x:-100,opacity:0},
+  visible:{x:0,opacity:1,transition:{duration:0.5,delay:delay}},
+});
 const Hero = () => {
   return (
-    <div className="">
- <div className='flex justify-between '>
+    // FOR BACKGROUND IMAGE
+    // bg-linear-to-r from-cyan-500 to-blue-500
+    <div className='text-white bg-cover bg-center bg-[url("/src/assets/Tranquil/help.jpg")] h-screen'>
+      <div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
+        <motion.p                 
         
-        <div className="lg:w-1/2 flex justify-center items-center lg:flex-col ">
+                whileInView={{y:0,opacity:1}}
+                initial={{y:-100,opacity:0}}
+                transition={{duration:0.5}}
 
-                <h3 className='text-6xl font-serif lg:text-left mb-6'>Escrow Trading</h3>
-                <div className="m-4">
-                <span className=''>Hybrid taking you abroad</span>
-                </div>
-                
+className='text-[#00df9a] font-bold p-2'>
+          GROWING WITH DATA ANALYTICS
+        </motion.p>
+        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>
+          Grow with data.
+        </h1>
+        <div className='flex justify-center items-center'>
+          <p className='md:text-5xl sm:text-4xl text-xl font-bold py-4'>
+            Fast, flexible financing for
+          </p>
+          <ReactTyped
+          className='md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2'
+            strings={['BTB', 'BTC', 'SASS']}
+            typeSpeed={120}
+            backSpeed={140}
+            loop
+          />
         </div>
-        
-        <div className="lg:w-1/2">
-            <img src={hybrid} alt=""  className=' rounded-lg'/>
-        </div>
-
-        
-
+        <p className='md:text-2xl text-xl font-bold text-gray-500'>Monitor your data analytics to increase revenue for BTB, BTC, & SASS platforms.</p>
+        <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Get Started</button>
+      </div>
     </div>
-    </div>
-   
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
